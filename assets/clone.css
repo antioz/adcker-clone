@@ -14,5 +14,7 @@ body,.text-body,.font-nhm{font-weight:600;letter-spacing:-.02em}
 .disclaimer{margin:0;padding:48px 15px 20px;text-align:center;font:500 14px/1.4 Inter,sans-serif;letter-spacing:0;color:rgba(25,25,25,.75);background:#EFEDEA}
 .disclaimer a{color:inherit}
 /* Кириллица шире латиницы: «НЕ ПРИСЛУ-» 1067px против «HACKING» 840px при 1440 — сводим ширину строк к оригиналу */
-.block-hero .text-h1{font-size:calc((.75em + 12vw)*.79)}
+@media (min-width:768px){.block-hero .text-h1{font-size:calc((.75em + 12vw)*.79)}}
+/* «алгоритмизировано» ≈ 9 кеглей шириной; на узком экране колонка ~77vw — кегль не больше 8.4vw, иначе слово режется */
+.text-h2{font-size:min(calc(2.5em + 2vw),8.4vw)}
 .fake-video img:only-child{animation:fv-zoom 12s ease-in-out infinite alternate;opacity:1}
