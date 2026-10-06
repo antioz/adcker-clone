@@ -47,6 +47,11 @@ body = body[:i] + body[body.find('</h2>', i) + 5:]
 a = 'In a world where everyone is trying to do everything, we choose to specialize in the beauty, fashion, and wellness industries.'
 assert a in body
 body = body.replace(a, 'Все, что может быть посчитано и алгоритмизировано, будет алгоритмизировано и посчитано — не там ищете.')
+# «More about us» -> «ко мне», на канал «Да, Антиосов»
+i = body.find('<a href="https://adcker.com/about/" class="body-link'); j = body.find('</a>', i)
+link = body[i:j].replace('https://adcker.com/about/', 'https://t.me/antiosov').replace('target=""', 'target="_blank" rel="noopener"')
+assert link.count('More about us') == 2
+body = body[:i] + link.replace('More about us', 'ко мне') + body[j:]
 # дисклеймер внизу
 DISCLAIMER = ('<p class="disclaimer">Я не пытаюсь украсть у вас ваш дизайн, это просто исследовательский эксперимент. '
               'Оригинал — <a href="https://adcker.com/" target="_blank" rel="noopener">adcker.com</a></p>')
