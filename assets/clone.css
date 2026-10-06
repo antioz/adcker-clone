@@ -15,3 +15,4 @@ body,.text-body,.font-nhm{font-weight:600;letter-spacing:-.02em}
 .disclaimer a{color:inherit}
 /* Кириллица шире латиницы: «НЕ ПРИСЛУ-» 1067px против «HACKING» 840px при 1440 — сводим ширину строк к оригиналу */
 .block-hero .text-h1{font-size:calc((.75em + 12vw)*.79)}
+.fake-video img:only-child{animation:fv-zoom 12s ease-in-out infinite alternate;opacity:1}

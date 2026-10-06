@@ -61,6 +61,8 @@ FAKE = ('<div class="{cls} fake-video">'
         '<img src="assets/img/photo-1.jpg" alt=""><img src="assets/img/photo-2.jpg" alt=""></div>')
 def video(m):
     cls = re.search(r'class="([^"]*)"', m.group(0)).group(1)
+    if 'aspect-video' in cls:  # большой кадр при скролле — одно фото, только наезд
+        return f'<div class="{cls} fake-video"><img src="assets/img/photo-1.jpg" alt=""></div>'
     return FAKE.format(cls=cls)
 body = re.sub(r'<video[^>]*></video>', video, body)
 
