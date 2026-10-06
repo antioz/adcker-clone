@@ -1,0 +1,4 @@
+# исходники adcker.com — только локально, для build.py
+source-adcker.html
+source-adcker.css
+.DS_Store
